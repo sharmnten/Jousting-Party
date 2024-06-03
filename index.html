@@ -5,6 +5,8 @@
 <body>
   <script> 
    var ground;
+   var player1;
+   var player2;
     class Jousting extends Phaser.Scene
     {
      
@@ -23,10 +25,13 @@
             for(var i = 0; i < 7; i++){ 
              ground.create(i*223, 704, 'ground');
             }
-            const donkey = this.add.image(640,360, 'donkey');
-            const redMonkey = this.add.image(640,360, 'redMonkey');
-            
+             player1 = this.physics.add.sprite(640,360, 'donkey');
+             player2 = this.physics.add.sprite(640,360, 'redMonkey')
+        }
 
+        update(){
+          player1.body.setGravityY(300)
+          this.physics.add.collider(player1, ground);
         }
     }
 
