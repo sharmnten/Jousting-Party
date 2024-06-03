@@ -4,7 +4,7 @@
 </head>
 <body>
   <script> 
-    class Example extends Phaser.Scene
+    class Jousting extends Phaser.Scene
     {
         preload ()
         {
@@ -22,8 +22,7 @@
             }
             const donkey = this.add.image(640,360, 'donkey');
             const redMonkey = this.add.image(640,360, 'redMonkey');
-
-            var world = new World(game, config)
+            var world = new World(Jousting, config)
             new Body(world, [donkey])
 
         }
