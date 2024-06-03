@@ -14,20 +14,18 @@
             this.load.image('ground','assets/ground.jpeg');
             this.load.image('redMonkey','assets/redMonkey.png');
             this.load.image('sky','assets/sky.png');
-
         }
 
         create ()
         {
+            ground = this.physics.add.staticGroup();
             const sky = this.add.image(640,360, 'sky'); 
             for(var i = 0; i < 7; i++){ 
              ground.create(i*223, 704, 'ground');
             }
             const donkey = this.add.image(640,360, 'donkey');
             const redMonkey = this.add.image(640,360, 'redMonkey');
-            var world = new World(this, config)
-            new Body(world, [donkey])
-            ground = this.physics.add.staticGroup();
+            
 
         }
     }
