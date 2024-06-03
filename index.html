@@ -7,6 +7,7 @@
    var ground;
    var player1;
    var player2;
+   
     class Jousting extends Phaser.Scene
     {
      
@@ -30,6 +31,7 @@
         }
 
         update(){
+          cursors = this.input.keyboard.createCursorKeys();
           this.physics.add.collider(player1, ground);
           this.physics.add.collider(player2, ground);
           if (cursors.left.isDown){
