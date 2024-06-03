@@ -17,7 +17,7 @@
         create ()
         {
             const sky = this.add.image(640,360, 'sky'); 
-            for(var i; i>6; i++){ 
+            for(var i = 0; i < 6; i++){ 
              this.add.image(i*225, 655, 'ground');
             }
             const donkey = this.add.image(640,360, 'donkey');
