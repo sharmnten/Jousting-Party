@@ -30,8 +30,8 @@
         }
 
         update(){
-          player1.body.setGravityY(300)
           this.physics.add.collider(player1, ground);
+          this.physics.add.collider(player2, ground);
         }
     }
 
