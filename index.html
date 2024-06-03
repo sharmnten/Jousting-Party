@@ -4,26 +4,30 @@
 </head>
 <body>
   <script> 
+   var ground;
     class Jousting extends Phaser.Scene
     {
+     
         preload ()
         {
             this.load.image('donkey', 'assets/donkeySprite.png');
             this.load.image('ground','assets/ground.jpeg');
             this.load.image('redMonkey','assets/redMonkey.png');
             this.load.image('sky','assets/sky.png');
+
         }
 
         create ()
         {
             const sky = this.add.image(640,360, 'sky'); 
             for(var i = 0; i < 7; i++){ 
-             this.add.image(i*223, 704, 'ground');
+             ground.create(i*223, 704, 'ground');
             }
             const donkey = this.add.image(640,360, 'donkey');
             const redMonkey = this.add.image(640,360, 'redMonkey');
             var world = new World(this, config)
             new Body(world, [donkey])
+            ground = this.physics.add.staticGroup();
 
         }
     }
