@@ -4,14 +4,12 @@
 </head>
 <body>
   <script> 
-   var ground;
-   var player1;
-   var player2;
-   var cursors = this.input.keyboard.createCursorKeys();
-
     class Jousting extends Phaser.Scene
     {
-     
+        player1;
+        player2;
+        ground;
+        cursors;
         preload ()
         {
             this.load.image('donkey', 'assets/donkeySprite.png');
@@ -22,24 +20,27 @@
 
         create ()
         {
-            ground = this.physics.add.staticGroup();
+            this.ground = this.physics.add.staticGroup();
             const sky = this.add.image(640,360, 'sky'); 
             for(var i = 0; i < 7; i++){ 
-             ground.create(i*223, 704, 'ground');
+              this.ground.create(i*223, 704, 'ground');
             }
-             player1 = this.physics.add.sprite(640,360, 'donkey');
-             player2 = this.physics.add.sprite(640,360, 'redMonkey')
+            this.player1 = this.physics.add.sprite(640,360, 'donkey');
+            this.player2 = this.physics.add.sprite(640,360, 'redMonkey')
+
+            this.physics.add.collider(player1, ground);
+            this.physics.add.collider(player2, ground);
+
+            this.cursors = this.input.keyboard.createCursorKeys();
         }
 
         update(){
-          this.physics.add.collider(player1, ground);
-          this.physics.add.collider(player2, ground);
-          if (cursors.left.isDown){
-            player1.setVelocityY(-330);
-
+         
+          if (this.cursors.left.isDown){
+            this.player1.setVelocityY(-330);
           }
-          else if (cursors.right.isDown){
-            player2.setVelocityY(-330);
+          else if (this.cursors.right.isDown){
+            this.player2.setVelocityY(-330);
           }
         }
     }
