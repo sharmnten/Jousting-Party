@@ -52,6 +52,7 @@
           }
 
           if(this.player1.x < 10 || this.player1.x > 1270){
+            //Make sure this only does one time -> currently activates constantly
             this.player1Velocity = -this.player1Velocity;
           }
           if(this.player2.x < 10 || this.player2.x > 1270){
