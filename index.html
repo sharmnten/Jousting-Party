@@ -28,19 +28,22 @@
             this.player1 = this.physics.add.sprite(640,360, 'donkey');
             this.player2 = this.physics.add.sprite(640,360, 'redMonkey')
 
-            this.physics.add.collider(player1, ground);
-            this.physics.add.collider(player2, ground);
+            this.physics.add.collider(this.player1, this.ground);
+            this.physics.add.collider(this.player2, this.ground);
 
             this.cursors = this.input.keyboard.createCursorKeys();
         }
 
         update(){
-         
+          this.player1.setVelocityX(160);
+          this.player2.setVelocityX(-160);
+
           if (this.cursors.left.isDown){
-            this.player1.setVelocityY(-330);
+            this.player1.setVelocityY(this.player1.velocity.y-330);
           }
-          else if (this.cursors.right.isDown){
-            this.player2.setVelocityY(-330);
+          
+          if (this.cursors.right.isDown){
+            this.player2.setVelocityY(this.player2.velocity.y-330);
           }
         }
     }
@@ -53,7 +56,8 @@
         physics: {
             default: 'arcade',
             arcade: {
-                gravity: { y: 200 }
+                gravity: { y: 200 },
+                debug: false
             }
         }
       
