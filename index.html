@@ -7,9 +7,9 @@
     class Jousting extends Phaser.Scene
     {
         player1;
-        player1Velocity = 160;
+        player1Velocity;
         player2;
-        player2Velocity = -160;
+        player2Velocity;
         ground;
         cursors;
         preload ()
@@ -34,6 +34,9 @@
             this.physics.add.collider(this.player2, this.ground);
 
             this.cursors = this.input.keyboard.createCursorKeys();
+
+            player1Velocity = 160;
+            player2Velocity = -160;
         }
 
         update(){
