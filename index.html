@@ -67,8 +67,26 @@
           if(this.player2.x > 1270){
             this.player2Velocity = -speed;
           }
-          //kills player if they touch the ground
+
+          if(this.player1.y < 10){
+              killPlayer(this.player1);
+          }
+          if(this.player1.y > 710){
+              killPlayer(this.player1);
+          }
+
+          if(this.player2.y < 10){
+              killPlayer(this.player2);
+          }
+          if(this.player2.y > 710){
+              killPlayer(this.player2);
+          }
         }
+    }
+
+    function killPlayer(player) {
+      game.isPaused = true;
+      player.destroy();
     }
 
     const config = {
