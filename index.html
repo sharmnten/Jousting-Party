@@ -32,7 +32,10 @@
 
             this.physics.add.collider(this.player1, this.ground);
             this.physics.add.collider(this.player2, this.ground);
-
+            //kill player if they touch the ground
+            this.physics.world.on('collide', (player1,ground, body1, body2) =>{
+              this.player1.destroy(true)
+            })
             this.cursors = this.input.keyboard.createCursorKeys();
 
             this.player1Velocity = 160;
@@ -58,6 +61,7 @@
           if(this.player2.x < 10 || this.player2.x > 1270){
             this.player2Velocity = -this.player2Velocity;
           }
+          //kills player if they touch the ground
         }
     }
 
