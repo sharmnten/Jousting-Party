@@ -5,6 +5,7 @@
 <body>
   <script> 
     const speed = 160;
+    const scaleSize = 3;
     class Jousting extends Phaser.Scene
     {
         player1;
@@ -30,10 +31,10 @@
             }
             this.player1 = this.physics.add.sprite(640,360, 'donkey');
             this.player2 = this.physics.add.sprite(640,360, 'redMonkey')
-            this.player1.setScale(15,15);
-            this.player2.setScale(15,15);
-            this.player1.setBodySize(25,25);
-            this.player2.setBodySize(25,25);
+            this.player1.setScale(scaleSize,scaleSize);
+            this.player2.setScale(scaleSize,scaleSize);
+            this.player1.setBodySize(scaleSize,scaleSize);
+            this.player2.setBodySize(scaleSize,scaleSize);
 
             this.physics.add.collider(this.player1, this.ground);
             this.physics.add.collider(this.player2, this.ground);
