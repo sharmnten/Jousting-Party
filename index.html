@@ -53,11 +53,11 @@
           this.player1.setVelocityX(this.player1Velocity);
           this.player2.setVelocityX(this.player2Velocity);
 
-          if (Keyboard.JustDown(KeyCodes.SPACE)){
+          if (this.cursors.space.isPressed){
             this.player1.setVelocityY(-330);
           }
           
-          if (Keyboard.JustDown(KeyCodes.UP)){
+          if (this.cursors.up.isPressed){
             this.player2.setVelocityY(-330);
           }
 
