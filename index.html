@@ -30,8 +30,10 @@
             }
             this.player1 = this.physics.add.sprite(640,360, 'donkey');
             this.player2 = this.physics.add.sprite(640,360, 'redMonkey')
-            this.player1.setScale(100,100);
-            this.player2.setScale(100,100);
+            this.player1.setScale(15,15);
+            this.player2.setScale(15,15);
+            this.player1.setBodySize(25,25);
+            this.player2.setBodySize(25,25);
 
             this.physics.add.collider(this.player1, this.ground);
             this.physics.add.collider(this.player2, this.ground);
